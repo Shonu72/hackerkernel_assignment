@@ -26,77 +26,75 @@ class _AddProductPageState extends State<AddProductPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Expanded(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextFormField(
-                  controller: _productNameController,
-                  decoration: InputDecoration(
-                    hintText: "Enter product name",
-                    prefixIcon: const Icon(Icons.dataset),
-                    border: OutlineInputBorder(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextFormField(
+                controller: _productNameController,
+                decoration: InputDecoration(
+                  hintText: "Enter product name",
+                  prefixIcon: const Icon(Icons.dataset),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter product name';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextFormField(
+                controller: _priceController,
+                decoration: InputDecoration(
+                  hintText: "Enter product price",
+                  prefixIcon: const Icon(Icons.currency_rupee),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter price';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 20),
+              _buildImagePicker(),
+              const SizedBox(height: 20),
+              Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blue),
+                    minimumSize:
+                        MaterialStateProperty.all<Size>(const Size(200, 50)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
-                    ),
+                    )),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter product name';
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _addProduct();
                     }
-                    return null;
                   },
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  controller: _priceController,
-                  decoration: InputDecoration(
-                    hintText: "Enter product price",
-                    prefixIcon: const Icon(Icons.currency_rupee),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter price';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                _buildImagePicker(),
-                const SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.center,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.blue),
-                      minimumSize:
-                          MaterialStateProperty.all<Size>(const Size(200, 50)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      )),
-                    ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _addProduct();
-                      }
-                    },
-                    child: const Text(
-                      'Save Product',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
+                  child: const Text(
+                    'Save Product',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -174,7 +172,7 @@ class _AddProductPageState extends State<AddProductPage> {
         .toList();
     String newProduct = _productNameController.text;
     if (products.any((product) => product['name'] == newProduct)) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Product already exists!'),
       ));
     } else {

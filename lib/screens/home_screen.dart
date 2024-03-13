@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hackerkernel/screens/login_page.dart';
 import 'package:hackerkernel/screens/producst/add_product.dart';
+import 'package:hackerkernel/services/auth_service.dart';
 import 'package:hackerkernel/widgets/custom_text.dart';
 import 'package:hackerkernel/widgets/icon_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -108,12 +109,13 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(right: 12),
             child: StyledIconButton(
-              onPressed: () {
+              onPressed: () async {
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginPage()),
                   (route) => false,
                 );
+                await AuthenticationApi.logout();
               },
               icon: Icons.login_outlined,
             ),
