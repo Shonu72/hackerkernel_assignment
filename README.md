@@ -5,7 +5,7 @@ A new Flutter project.
 ## Getting Started
 
 Screenshots of screens with functionality: 
-
+<p align="left"> 
 ![Screenshot_2024-03-13-23-03-25-75_1db39fb137b536cdfa604ed344c3145b](https://github.com/Shonu72/hackerkernel_assignment/assets/67668844/48fd4ae9-b59f-4f37-892f-877da35eb0ce)
 ![Screenshot_2024-03-13-23-05-31-49_1db39fb137b536cdfa604ed344c3145b](https://github.com/Shonu72/hackerkernel_assignment/assets/67668844/0d76d14a-d036-4c3b-bf76-ac991ec1fe25)
 ![Screenshot_2024-03-13-23-05-46-42_1db39fb137b536cdfa604ed344c3145b](https://github.com/Shonu72/hackerkernel_assignment/assets/67668844/8208e773-265f-4490-995a-cd5d6a93ee1a)
@@ -16,3 +16,5 @@ Screenshots of screens with functionality:
 ![Screenshot_2024-03-13-23-01-26-32_1db39fb137b536cdfa604ed344c3145b](https://github.com/Shonu72/hackerkernel_assignment/assets/67668844/9ac2b26f-21c5-4de4-a638-717a7e25a2c6)
 ![Screenshot_2024-03-13-23-03-15-85_1db39fb137b536cdfa604ed344c3145b](https://github.com/Shonu72/hackerkernel_assignment/assets/67668844/8bcbf784-0ced-4bd2-a875-9310df0783ad)
 ![Screenshot_2024-03-13-23-03-21-45_1db39fb137b536cdfa604ed344c3145b](https://github.com/Shonu72/hackerkernel_assignment/assets/67668844/1fd3dbf3-1b84-4f00-83a8-f909be1d4dda)
+
+</p>
